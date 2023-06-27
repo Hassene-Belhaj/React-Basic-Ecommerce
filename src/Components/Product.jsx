@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, delay, motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -15,15 +15,16 @@ border-radius: 12px;
 display: flex;
 position: relative;
 transition: all 1s ease-in-out;
+overflow: hidden;
 img{
     min-width: 100%;
     object-fit: cover;
     border-radius: 12px;
 }
 `
-const ProductsItems = styled.div`
+const ProductsItems = styled(motion.div)`
 position: absolute;
-display :${({hovering})=>hovering ? 'flex' : 'none'};
+/* display :${({hovering})=>hovering ? 'flex' : 'none'}; */
 flex-direction: column;
 inset: 0;
 width:100%;
@@ -36,8 +37,6 @@ transition: all 0.4s ease-in-out;
 `
 
 const ButtonDiv = styled(motion.div)`
-position: absolute;
-inset: 0;
 width: 100%;
 height: 100%;
 button{
@@ -46,6 +45,7 @@ button{
     margin-top: 5rem;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 `
@@ -66,23 +66,36 @@ const Product = ({product}) => {
 
  
 
+    
+
   return (
-               <AnimatePresence>
-        <Container>
-            <ProductDiv onMouseEnter={mouseEnter} onMouseLeave={mouseLeaving} >
+      <Container>
+            <ProductDiv onMouseEnter={mouseEnter} onMouseLeave={mouseLeaving}>
                 <img src={image} alt="" />
-                <ProductsItems hovering={hovering}>
+                <ProductsItems hovering={hovering}
+                     style={{ height: hovering ? "100%" : 0 }}             
+                    >
+                    {hovering ?   <>
                     <h3>{title}</h3>
-                    <ButtonDiv>
+                    <ButtonDiv 
+                      initial={{opacity : 0 , y : 200}}
+                      animate={{opacity : 1 , y : 0}}
+                      exit={{opacity : 0}} 
+                      transition={{
+                        duration : 0.4 ,
+                        delay: 0.3
+                    }}  
+                    >
                          <button>${price}</button>
                          <button >add to cart</button>
                     </ButtonDiv>
+                    </>: null }
+                  
                    
                 </ProductsItems>
             </ProductDiv>
                    
         </Container>
-                </AnimatePresence>
 
   )
 }
