@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { AnimatePresence, delay, motion } from 'framer-motion'
+import {motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -24,7 +24,7 @@ img{
 `
 const ProductsItems = styled(motion.div)`
 position: absolute;
-/* display :${({hovering})=>hovering ? 'flex' : 'none'}; */
+display: flex;
 flex-direction: column;
 inset: 0;
 width:100%;
@@ -33,7 +33,6 @@ background: rgba(0,0,0,0.9);
 border-radius: 12px;
 z-index: 0;
 color: #fff;
-transition: all 0.4s ease-in-out;
 `
 
 const ButtonDiv = styled(motion.div)`
@@ -42,12 +41,27 @@ height: 100%;
 button{
     padding: 0.5rem 1rem;
     margin-left: 1rem;
-    margin-top: 5rem;
+    margin-top: 12rem;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
-}
+    cursor: pointer;   
+    font-weight :500 ;
+    transition: all 0.3s ease-in-out;
+  
+}  
 
+button:first-child{
+}
+button:last-child{
+background    :#fff ;
+color: #000;
+transition: all 0.2s ease-in-out;
+
+&:hover{
+    background: #4ade80;
+    transition: all 0.3s ease-in-out;
+}
+}
 `
 
 
@@ -72,24 +86,37 @@ const Product = ({product}) => {
       <Container>
             <ProductDiv onMouseEnter={mouseEnter} onMouseLeave={mouseLeaving}>
                 <img src={image} alt="" />
-                <ProductsItems hovering={hovering}
-                     style={{ height: hovering ? "100%" : 0 }}             
+
+                <ProductsItems                      
+                 style={{width: hovering ? "100%" : 0 }}             
                     >
-                    {hovering ?   <>
-                    <h3>{title}</h3>
+                    {hovering ?   
+                    <>
+                    <motion.h3 style={{textTransform:'capitalize'}}
+                          initial={{opacity : 0 , scale : 0}}
+                          animate={{opacity : 1 , scale : 1}}
+                          exit={{opacity : 0}} 
+                          transition={{
+                                duration : 0.4 ,
+                                delay: 0.2
+                        }} 
+                    >{title}
+                    </motion.h3>
                     <ButtonDiv 
                       initial={{opacity : 0 , y : 200}}
                       animate={{opacity : 1 , y : 0}}
                       exit={{opacity : 0}} 
                       transition={{
-                        duration : 0.4 ,
-                        delay: 0.3
+                            duration : 0.4 ,
+                            delay: 0.3
                     }}  
                     >
                          <button>${price}</button>
-                         <button >add to cart</button>
+                         <button >Add To Cart</button>
                     </ButtonDiv>
-                    </>: null }
+                    </>
+                    :
+                     null }
                   
                    
                 </ProductsItems>

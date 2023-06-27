@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
+import { useContextCart } from '../Context/ContextCart'
 
 const MainDiv = styled.div`
 width: 100%;
@@ -37,7 +38,6 @@ gap: 8rem;
 
 const Main = () => {
  const [data] = useContextData()
- console.log(data);
 
 
   return (

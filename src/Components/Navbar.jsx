@@ -7,7 +7,9 @@ const NavBar = styled.div`
 width: 100%;
 height: 60px;
 background: #f3f5f9;
-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2)
+/* box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2) ; */
+z-index: 101;
+position: absolute;
 `
 
 
