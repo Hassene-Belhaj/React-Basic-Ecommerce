@@ -1,12 +1,16 @@
 import React from 'react'
 import Navbar from './Components/Navbar'
-import { Globalstyle } from './Components/GlobalStyle'
 import Main from './Components/Main'
+import { Global } from './Components/GlobalStyle'
+
+
+
+
 const App = () => {
 
   return (
   <>
-    <Globalstyle />
+    <Global />
     <Navbar />
     <Main />
   </>
