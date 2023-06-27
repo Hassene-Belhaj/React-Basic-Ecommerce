@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {motion } from 'framer-motion'
+import { useContextCart } from '../Context/ContextCart'
 
 
 const Container = styled.div`
@@ -67,6 +68,7 @@ transition: all 0.2s ease-in-out;
 
 
 const Product = ({product}) => {
+     const {cart,addTocart,deleteProduct} = useContextCart()
     const {id,title,image,description , price} = product
     const [hovering , setHovering] = useState(false)
 
@@ -77,9 +79,8 @@ const Product = ({product}) => {
         setHovering(false)
     }
  
-
  
-
+  console.log(cart);
     
 
   return (
@@ -112,7 +113,7 @@ const Product = ({product}) => {
                     }}  
                     >
                          <button>${price}</button>
-                         <button >Add To Cart</button>
+                         <button onClick={()=>addTocart(product,id)}>Add To Cart</button>
                     </ButtonDiv>
                     </>
                     :

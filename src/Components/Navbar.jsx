@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsBag } from 'react-icons/bs'
+import { useContextCart } from '../Context/ContextCart'
 
 
 const NavBar = styled.div`
@@ -33,6 +34,7 @@ top : 1rem ;
 display: flex;
 justify-content: center;
 align-items: center;
+cursor: pointer;
 `
 const BagIcon = styled.span`
 position: absolute;
@@ -54,12 +56,14 @@ h3{
 
 
 const Navbar = () => {
+  const {toggle , handleClick}= useContextCart()
+  console.log(toggle);
   return (
     <NavBar>
       <Container>
         <h2>React Shop </h2>
-       <BagDiv>
-         <BsBag size={30} />
+       <BagDiv onClick={handleClick} >
+         <BsBag size={30}  />
           <BagIcon>
               <h3>1</h3>          
           </BagIcon>
