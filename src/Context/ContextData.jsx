@@ -11,7 +11,7 @@ const ContextData = ({children}) => {
     const [data,setData] = useState(Products)
 
   return (
-    <useContextDataG.Provider value={[data]}>
+    <useContextDataG.Provider value={[data,setData]}>
         {children}
     </useContextDataG.Provider>
     )

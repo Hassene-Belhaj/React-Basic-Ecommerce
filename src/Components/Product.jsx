@@ -36,13 +36,15 @@ z-index: 0;
 color: #fff;
 `
 
-const ButtonDiv = styled(motion.div)`
+const ButtonDiv = styled.div`
 width: 100%;
 height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 button{
     padding: 0.5rem 1rem;
     margin-left: 1rem;
-    margin-top: 12rem;
     border-radius: 5px;
     border: none;
     cursor: pointer;   
@@ -80,7 +82,6 @@ const Product = ({product}) => {
     }
  
  
-  console.log(cart);
     
 
   return (
@@ -101,19 +102,21 @@ const Product = ({product}) => {
                                 duration : 0.3 ,
                                 delay: 0.1
                         }} 
-                    >{title}
-                    </motion.h3>
-                    <ButtonDiv 
-                      initial={{opacity : 0 , y : 200}}
-                      animate={{opacity : 1 , y : 0}}
-                      exit={{opacity : 0}} 
-                      transition={{
-                            duration : 0.3 ,
-                            delay: 0.2
-                    }}  
                     >
+                    {title}
+                    </motion.h3>
+                    <ButtonDiv>
+                       <motion.div
+                        initial={{opacity : 0 , x : 200}}
+                        animate={{opacity : 1 , x : 0}}
+                        transition={{
+                              duration : 0.3 ,
+                              delay: 0.2
+                      }} 
+                       >
                          <button>${price}</button>
                          <button onClick={()=>addTocart(product,id)}>Add To Cart</button>
+                        </motion.div> 
                     </ButtonDiv>
                     </>
                     :
