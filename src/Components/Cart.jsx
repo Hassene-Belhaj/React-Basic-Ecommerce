@@ -17,7 +17,7 @@ z-index: 1000;
 color: #fff;
 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2) ;
 color: #000;
-transition: all 0.5s ease-in-out;
+transition: all 0.3s ease-in-out;
 overflow: scroll;
 h3{
     padding: 1rem;
@@ -40,16 +40,59 @@ height: 60px;
 background: #f3f5f9;
 `
 const BottomCart = styled.div`
+padding: 1rem;
 position: fixed;
 bottom: 0;
-width: 100%;
+width: 30%;
 height: 21%;
 background:#d5d5d5;
+@media screen and (max-width : 768px) {
+width    :100% ;
+}
 `
+const BottomCartFlex = styled.div`
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+`
+
+
 const TrashIcon = styled(BsTrash3)`
 fill:red;
 z-index: 1;
 `
+
+const Button = styled.div`
+cursor : pointer;
+`
+const Checkout = styled.div`
+padding-top: 1rem;
+width: 100%;
+height: auto;
+display: flex;
+justify-content: center;
+button{
+    padding: 1rem 14rem;
+    border-radius: 10px;
+    border: none ;
+    background: #000;
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: capitalize; 
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+&:hover{
+    transition: all 0.2s ease-in-out;
+    background: #4ade80;
+    color: #000;
+}
+}
+
+`
+
+
 const Cart = () => {
     const {toggle , handleClick}= useContextCart()
     const {cart,addTocart,deleteProduct,clearCart,total} = useContextCart()
@@ -68,9 +111,16 @@ const Cart = () => {
         </CartDiv>
          
          <BottomCart>
-             <h3>{total} $</h3>
-            <button onClick={clearCart}><TrashIcon  size={35} /></button>
-    
+         <BottomCartFlex>
+             <h3>Total : {total} $</h3>
+             <Button onClick={clearCart}>
+                 <TrashIcon  size={35} />
+             </Button>
+         </BottomCartFlex>
+         <Checkout>
+            <button>Checkout</button>
+         </Checkout>
+
          </BottomCart>
             </Container>
   )

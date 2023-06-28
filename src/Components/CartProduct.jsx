@@ -98,8 +98,8 @@ const CartProduct = ({product}) => {
             </Buttons>
 
             <Price>
-               <span><h5>${price}</h5></span>
-               <span><h5>${totalItem.toFixed(2)}</h5></span>
+               <h5>${price}</h5>
+               <h5>${totalItem.toFixed(2)}</h5>
             </Price>
         </Middle>
         </RightColumn>
