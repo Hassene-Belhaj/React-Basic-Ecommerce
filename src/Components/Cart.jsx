@@ -74,7 +74,8 @@ height: auto;
 display: flex;
 justify-content: center;
 button{
-    padding: 1rem 14rem;
+    width : 90% ;
+    padding: 1rem;
     border-radius: 10px;
     border: none ;
     background: #000;
@@ -88,6 +89,7 @@ button{
     background: #4ade80;
     color: #000;
 }
+
 }
 
 `
