@@ -56,7 +56,7 @@ h3{
 
 
 const Navbar = () => {
-  const {toggle , handleClick}= useContextCart()
+  const {toggle , handleClick,bagQuantity}= useContextCart()
   console.log(toggle);
   return (
     <NavBar>
@@ -65,7 +65,7 @@ const Navbar = () => {
        <BagDiv onClick={handleClick} >
          <BsBag size={30}  />
           <BagIcon>
-              <h3>1</h3>          
+              <h3>{bagQuantity}</h3>          
           </BagIcon>
         </BagDiv> 
       </Container>

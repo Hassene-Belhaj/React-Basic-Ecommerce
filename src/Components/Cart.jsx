@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose} from 'react-icons/ai'
+import { BsTrash3 } from 'react-icons/bs'
 import { useContextCart } from '../Context/ContextCart'
 import CartProduct from './CartProduct'
 
@@ -45,26 +46,32 @@ width: 100%;
 height: 21%;
 background:#d5d5d5;
 `
-
+const TrashIcon = styled(BsTrash3)`
+fill:red;
+z-index: 1;
+`
 const Cart = () => {
     const {toggle , handleClick}= useContextCart()
-    const {cart,addTocart,deleteProduct} = useContextCart()
+    const {cart,addTocart,deleteProduct,clearCart,total} = useContextCart()
 
 
   return (
     <Container toggle={toggle}>
-         <BottomCart></BottomCart>
         <CartDiv>
         <h3>Cart</h3>
         <CloseIcon size={25} onClick={handleClick} />
         {cart.map((product,index)=>{
             return (       
                 <CartProduct key={index}  product={product}/>
-
         )
         })}
         </CartDiv>
          
+         <BottomCart>
+             <h3>{total} $</h3>
+            <button onClick={clearCart}><TrashIcon  size={35} /></button>
+    
+         </BottomCart>
             </Container>
   )
 }

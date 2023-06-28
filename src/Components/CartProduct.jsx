@@ -77,8 +77,10 @@ align-items: center;
 
 const CartProduct = ({product}) => {
      const {id,title,description,image,price,quantity} = product
-    const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,deleteCart} = useContextCart()
+    const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,total} = useContextCart()
      console.log(quantity);
+
+     const totalItem = quantity * price
 
   return (
     <ProductCart>
@@ -89,7 +91,7 @@ const CartProduct = ({product}) => {
             <AiOutlineClose  onClick={()=>deleteProduct(id)}/>
         </Top>
         <Middle> 
-                <button style={{background:'#f3f5f9',color:'#000'}}>{quantity}</button> 
+                <button style={{background:'#f3f5f9',color:'#000',fontSize:'1rem'}}>{quantity}</button> 
             <Buttons>
                 <button onClick={()=>increaseQuantity(id)}><BiChevronUp size={15}/></button>
                 <button onClick={()=>decreaseQuantity(id)}><BiChevronDown size={15}/></button>
@@ -97,7 +99,7 @@ const CartProduct = ({product}) => {
 
             <Price>
                <span><h5>${price}</h5></span>
-               <span><h5>${price}</h5></span>
+               <span><h5>${totalItem.toFixed(2)}</h5></span>
             </Price>
         </Middle>
         </RightColumn>

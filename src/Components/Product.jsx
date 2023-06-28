@@ -98,8 +98,8 @@ const Product = ({product}) => {
                           animate={{opacity : 1 , scale : 1}}
                           exit={{opacity : 0}} 
                           transition={{
-                                duration : 0.4 ,
-                                delay: 0.2
+                                duration : 0.3 ,
+                                delay: 0.1
                         }} 
                     >{title}
                     </motion.h3>
@@ -108,8 +108,8 @@ const Product = ({product}) => {
                       animate={{opacity : 1 , y : 0}}
                       exit={{opacity : 0}} 
                       transition={{
-                            duration : 0.4 ,
-                            delay: 0.3
+                            duration : 0.3 ,
+                            delay: 0.2
                     }}  
                     >
                          <button>${price}</button>

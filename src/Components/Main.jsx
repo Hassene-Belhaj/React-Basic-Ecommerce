@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
-import { useContextCart } from '../Context/ContextCart'
 
 const MainDiv = styled.div`
 width: 100%;
