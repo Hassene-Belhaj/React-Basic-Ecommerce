@@ -77,8 +77,8 @@ align-items: center;
 
 const CartProduct = ({product}) => {
      const {id,title,description,image,price,quantity} = product
-    const {cart,addTocart,deleteProduct,decreaseQuantity} = useContextCart()
-
+    const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,deleteCart} = useContextCart()
+     console.log(quantity);
 
   return (
     <ProductCart>
@@ -89,9 +89,9 @@ const CartProduct = ({product}) => {
             <AiOutlineClose  onClick={()=>deleteProduct(id)}/>
         </Top>
         <Middle> 
-                <button style={{background:'#f3f5f9',color:'#000'}}>1</button> 
+                <button style={{background:'#f3f5f9',color:'#000'}}>{quantity}</button> 
             <Buttons>
-                <button><BiChevronUp size={15}/></button>
+                <button onClick={()=>increaseQuantity(id)}><BiChevronUp size={15}/></button>
                 <button onClick={()=>decreaseQuantity(id)}><BiChevronDown size={15}/></button>
             </Buttons>
 

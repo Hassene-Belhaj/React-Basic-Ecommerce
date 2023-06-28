@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose} from 'react-icons/ai'
-import { BiChevronUp,BiChevronDown} from 'react-icons/bi'
 import { useContextCart } from '../Context/ContextCart'
 import CartProduct from './CartProduct'
 
 
 const Container = styled.div`
 width: 30%;
-height: 100%;
+height: 82%;
 position:fixed;
 right: ${({toggle})=>toggle ?   0 : '-100%'};
 top: 0;
@@ -18,6 +17,7 @@ color: #fff;
 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2) ;
 color: #000;
 transition: all 0.5s ease-in-out;
+overflow: scroll;
 h3{
     padding: 1rem;
 }
@@ -38,7 +38,13 @@ width: 100%;
 height: 60px;
 background: #f3f5f9;
 `
-
+const BottomCart = styled.div`
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 21%;
+background:#d5d5d5;
+`
 
 const Cart = () => {
     const {toggle , handleClick}= useContextCart()
@@ -47,6 +53,7 @@ const Cart = () => {
 
   return (
     <Container toggle={toggle}>
+         <BottomCart></BottomCart>
         <CartDiv>
         <h3>Cart</h3>
         <CloseIcon size={25} onClick={handleClick} />
@@ -57,7 +64,7 @@ const Cart = () => {
         )
         })}
         </CartDiv>
-            
+         
             </Container>
   )
 }

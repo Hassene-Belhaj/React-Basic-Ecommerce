@@ -16,7 +16,7 @@ const productInCart = cart.find((item)=>item.id === id)
   if (productInCart) {
     const newCart = cart.map((item)=>{
         if (item.id === id) {
-            return {...item , quantity : quantity.item + 1}
+            return {...item , quantity : item.quantity + 1}
         } else {
             return item
         }
@@ -47,12 +47,20 @@ if (productInCart) {
     deleteProduct(id)
 }
 
+}
 
+const increaseQuantity = (id) => {
+const product = cart.find((item)=>item.id === id) 
+addTocart(product,id)   
+}
+
+const deleteCart = () =>{
+setCart([])
 }
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity}}>
+  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,deleteCart}}>
     {children}
   </useContextCartG.Provider>
     )
