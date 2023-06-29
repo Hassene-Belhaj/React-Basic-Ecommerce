@@ -18,7 +18,7 @@ z-index: 1000;
 color: #fff;
 box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2) ;
 color: #000;
-transition: all 0.3s ease-in-out;
+transition: all 0.5s ease-in-out;
 overflow: scroll;
 h3{
     padding: 1rem;
@@ -98,7 +98,7 @@ button{
 
 const Cart = () => {
     const {toggle , handleClick}= useContextCart()
-    const {cart,addTocart,deleteProduct,clearCart,total} = useContextCart()
+    const {cart,clearCart,total} = useContextCart()
 
 
   return (

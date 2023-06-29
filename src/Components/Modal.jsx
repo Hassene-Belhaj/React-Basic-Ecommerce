@@ -3,6 +3,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { MdDoneOutline } from 'react-icons/md'
 import styled from 'styled-components'
 import { useContextCart } from '../Context/ContextCart'
+import { motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -15,7 +16,7 @@ display:flex;
 justify-content: center;
 align-items: center;
 `
-const ModalDiv = styled.div`
+const ModalDiv = styled(motion.div)`
 width: 400px;
 height: 500px;
 background: #fff;
@@ -49,7 +50,6 @@ button{
 `
 
 const DoneIcon = styled(MdDoneOutline)`
-fill : green ;
 `
 const ButtonDiv =styled.div`
 width: 100%;
@@ -71,12 +71,9 @@ button{
 
 const Modal = () => {
   const handleShow = () => setShow(!show)
-  const {cart,bagQuantity,addTocart,toggle,handleClick} = useContextCart()
+  const {bagQuantity,toggle,handleClick} = useContextCart()
   const [show,setShow] = useState(false)  
  
-
-
-
 
   useEffect(()=>{
   if (bagQuantity && !toggle) {
@@ -86,29 +83,41 @@ const Modal = () => {
   }
   },[bagQuantity])
 
+ useEffect(()=>{
+ if (toggle) {
+  setShow(false)
+ }
 
-  useEffect(()=>{
-  if(toggle) {
-    setShow(false)
-  }
-  },[toggle])
 
+ },[toggle])
+
+  
 
 
   return (
     <>
     {show ? <Container>
-                <ModalDiv>
+               
+                <ModalDiv 
+                initial={{opacity :1 , y : -200}} 
+                animate={{opacity : 1 ,y : 0}}
+                transition={{
+                  duration : 0.7 ,
+                  type : 'spring',
+                  bounce : 0.3 ,
+                }}
+
+                >
                       <CloseIcon size={25} onClick={handleShow} />
                   <FlexModal>
                       <DoneDiv>
-                        <button> <DoneIcon size={40} /></button>  
+                        <button style={{background:'green'}}> <DoneIcon size={40} color='#fff'/></button>  
                       </DoneDiv>
                       <h4>Item Added To Your Cart</h4>
                       <p>{bagQuantity} In Your Cart</p>
                     <ButtonDiv>
-                        <button onClick={()=>setShow(!show)}> Continue Shopping</button>
-                        <button onClick={handleClick}> Go To The Cart</button>
+                        <button style={{border:'solid 1px #22c55e',color:'#22c55e',background:'#fff',fontWeight:'700'}} onClick={handleShow}> Continue Shopping</button>
+                        <button style={{border:'solid 1px #0ea5e9',color:'#0ea5e9',background:'#fff',fontWeight:'700'}} onClick={handleClick}> Go To The Cart</button>
                     </ButtonDiv>
                   </FlexModal>
                 </ModalDiv>
