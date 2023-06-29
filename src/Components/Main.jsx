@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
 import { AnimatePresence , motion } from 'framer-motion'
+import Modal from './Modal'
 
 const MainDiv = styled.div`
 width: 100%;
@@ -48,6 +49,7 @@ gap: 8rem;
 const Main = () => {
   const [data] = useContextData()
   const [newData , setNewData] = useState(data)
+  const [show,setShow] = useState(false)
 
  const Categories = [
   {id : 0 , category : 'All'},
@@ -97,7 +99,10 @@ const Main = () => {
      
 
       </Container>
-      
+
+ {/* modal ---------------------      */}
+
+
     </MainDiv>
   )
 }
