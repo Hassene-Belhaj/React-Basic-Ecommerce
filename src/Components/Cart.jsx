@@ -4,6 +4,7 @@ import { AiOutlineClose} from 'react-icons/ai'
 import { BsTrash3 } from 'react-icons/bs'
 import { useContextCart } from '../Context/ContextCart'
 import CartProduct from './CartProduct'
+import { motion } from 'framer-motion'
 
 
 const Container = styled.div`
@@ -101,7 +102,7 @@ const Cart = () => {
 
 
   return (
-    <Container toggle={toggle}>
+    <Container toggle={toggle} >
         <CartDiv>
         <h3>Cart</h3>
         <CloseIcon size={25} onClick={handleClick} />

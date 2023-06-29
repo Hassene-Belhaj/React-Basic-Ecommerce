@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence , motion } from 'framer-motion'
 
 const MainDiv = styled.div`
 width: 100%;
@@ -12,6 +12,7 @@ text-align: center;
 margin: auto;
 color: #000;
 padding-top: 60px;
+overflow: hidden;
 h3{
   padding-top: 2rem;
 }
@@ -44,10 +45,6 @@ gap: 8rem;
 `
 
 
-
-
-
-
 const Main = () => {
   const [data] = useContextData()
   const [newData , setNewData] = useState(data)
@@ -60,12 +57,13 @@ const Main = () => {
 
 
  const filterDataCategory = (id,category) => {
-   const dataCategory =data.filter((item)=>item.category === category)
-   setNewData(dataCategory) 
+   const dataCategory = data.filter((item)=>item.category === category)
   if (id === 0)
   setNewData(data)
+  else {
+    setNewData(dataCategory) 
+  }
  }
-
 
 
 
@@ -75,16 +73,28 @@ const Main = () => {
       {Categories.map((item,index)=>{
         return <button key={index} onClick={()=>filterDataCategory(item.id,item.category)}  style={{marginLeft:'1rem'}}>{item.category}</button>
       })}
-      <Container>
+      <Container>   
         <GridDiv>
-        <AnimatePresence>
-        {newData.map((product,index)=>{
+        {newData.map((product,index)=>{       
           return (
-            <Product key={index} product={product} />
+              <AnimatePresence key={index}> 
+                 <motion.div 
+                 key={product.id}
+                 layout
+                 initial={{opacity : 0}}
+                 animate={{opacity : 1}}
+                 exit={{opacity : 0}}
+                 transition={{duration : 0.3}}
+                >
+                             <Product key={index} product={product} />
+                 </motion.div>
+              </AnimatePresence>  
+    
+     
             )
           })}
-          </AnimatePresence>  
             </GridDiv>
+     
 
       </Container>
       

@@ -20,6 +20,7 @@ height: 100%;
 display: flex;
 align-items: center;
 h2{
+  font-size: 1.3rem;
   margin-left: 2rem;
 }
 position: relative;
@@ -57,11 +58,10 @@ h3{
 
 const Navbar = () => {
   const {toggle , handleClick,bagQuantity}= useContextCart()
-  console.log(toggle);
   return (
     <NavBar>
       <Container>
-        <h2>React Shop </h2>
+        <h2>React Shop</h2>
        <BagDiv onClick={handleClick} >
          <BsBag size={30}  />
           <BagIcon>

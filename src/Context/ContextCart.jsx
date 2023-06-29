@@ -68,7 +68,6 @@ if (productInCart) {
 } if(productInCart.quantity < 2 ) {
     deleteProduct(id)
 }
-
 }
 
 const increaseQuantity = (id) => {
