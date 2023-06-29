@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useContextData } from '../Context/ContextData'
 import Product from './Product'
 import { AnimatePresence , motion } from 'framer-motion'
-import Modal from './Modal'
 
 const MainDiv = styled.div`
 width: 100%;

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {AnimatePresence, motion } from 'framer-motion'
 import { useContextCart } from '../Context/ContextCart'
 import StarsandLikes from './StarsandLikes'
+import { Link} from 'react-router-dom'
 
 
 const Container = styled(motion.div)`
@@ -56,6 +57,8 @@ button{
 }  
 
 button:first-child{
+font-size    :1rem ;
+font-weight: 700;
 }
 button:last-child{
 background    :#4ade80 ;
@@ -70,8 +73,27 @@ transition: all 0.2s ease-in;
 }
 }
 `
-
-
+const ProductDetails = styled.span`
+margin: 2rem auto;
+width: 90%;
+height: auto;
+text-align: center;
+h4{ 
+    display: inline-block;
+    padding: 12px;
+    border-bottom: solid 1px #fff;
+}
+`
+const Linkto = styled(Link)`
+text-transform: none;
+color: #fff;
+transition: all 0.2s ease-in-out;
+&:hover{
+    color: #4ade80;
+    transition: all 0.2s ease-in-out;   
+  
+}
+`
 
 const Product = ({product}) => {
      const {cart,addTocart,deleteProduct} = useContextCart()
@@ -111,6 +133,14 @@ const Product = ({product}) => {
                         <StarsandLikes product={product}  /> 
 
                     </motion.h3>
+                    
+                    <ProductDetails>
+                       <Linkto to={`product/${id}`}>
+                             <h4>View Details</h4>
+                       </Linkto>
+                       
+                   </ProductDetails> 
+
                     <ButtonDiv>
                        <motion.div
                         initial={{opacity : 0 , y : 200}}
@@ -123,6 +153,7 @@ const Product = ({product}) => {
                          <button>${price}</button>
                          <button onClick={()=>addTocart(product,id)}>Add To Cart</button>
                         </motion.div> 
+
                     </ButtonDiv>
                     </>
                     :

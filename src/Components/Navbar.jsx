@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsBag } from 'react-icons/bs'
 import { useContextCart } from '../Context/ContextCart'
+import { Link } from 'react-router-dom'
 
 
 const NavBar = styled.div`
@@ -61,7 +62,9 @@ const Navbar = () => {
   return (
     <NavBar>
       <Container>
-        <h2>React Shop</h2>
+        <Link to={'/'}  style={{color:'#000',textDecoration:'none'}}>       
+           <h2>React Shop</h2>
+        </Link>
        <BagDiv onClick={handleClick} >
          <BsBag size={30}  />
           <BagIcon>
