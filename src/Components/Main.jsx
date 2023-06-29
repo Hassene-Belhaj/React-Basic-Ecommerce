@@ -48,7 +48,6 @@ gap: 8rem;
 const Main = () => {
   const [data] = useContextData()
   const [newData , setNewData] = useState(data)
-  const [show,setShow] = useState(false)
 
  const Categories = [
   {id : 0 , category : 'All'},
@@ -62,7 +61,7 @@ const Main = () => {
   if (id === 0)
   setNewData(data)
   else {
-    setNewData(dataCategory) 
+  setNewData(dataCategory) 
   }
  }
 

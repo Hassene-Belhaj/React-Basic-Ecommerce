@@ -78,12 +78,16 @@ margin: 2rem auto;
 width: 90%;
 height: auto;
 text-align: center;
-h4{ 
+h3{ 
     display: inline-block;
-    padding: 12px;
-    border-bottom: solid 1px #fff;
+    color: #4ade80;
+    border-bottom: solid 1px #4ade80;
+    /* padding: 12px; */
+    transition: all 0.2s ease-in-out;
 }
 `
+
+
 const Linkto = styled(Link)`
 text-transform: none;
 color: #fff;
@@ -128,7 +132,7 @@ const Product = ({product}) => {
                               delay: 0.1
                             }} 
                             >
-                    <h5>{title}</h5>
+                   {title}
 
                         <StarsandLikes product={product}  /> 
 
@@ -136,7 +140,7 @@ const Product = ({product}) => {
                     
                     <ProductDetails>
                        <Linkto to={`product/${id}`}>
-                             <h4>View Details</h4>
+                             <h3>View Details</h3>
                        </Linkto>
                        
                    </ProductDetails> 

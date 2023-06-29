@@ -78,7 +78,6 @@ align-items: center;
 const CartProduct = ({product}) => {
      const {id,title,description,image,price,quantity} = product
     const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,total} = useContextCart()
-     console.log(quantity);
 
      const totalItem = quantity * price
 

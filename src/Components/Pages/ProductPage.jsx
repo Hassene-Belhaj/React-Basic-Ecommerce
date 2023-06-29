@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import styled from 'styled-components'
 import { useContextData } from '../../Context/ContextData'
 import { useContextCart } from '../../Context/ContextCart'
+import { motion ,AnimatePresence } from 'framer-motion'
 
 const Container = styled.div`
 padding-top: 60px;
@@ -12,7 +13,7 @@ background :#f3f5f9 ;
 color: #000;
 margin: auto;
 `
-const ProductPageDiv = styled.div`
+const ProductPageDiv = styled(motion.div)`
 width: 90%;
 height: 95%;
 display: flex;
@@ -47,6 +48,7 @@ p{
 
 `
 const Button = styled.div`
+padding-top: 5rem;
 width: 100%;
 margin: 2rem auto;
 display: flex;
@@ -82,7 +84,19 @@ const {title,image,description,price} = product
 
   return (
     <Container>
-       <ProductPageDiv>
+      <AnimatePresence>
+       <ProductPageDiv
+       initial={{opacity : 0 , x : -100}}
+       animate={{opacity : 1 , x :0}}
+       exit={{opacity : 0}}
+       transition={{
+        duration : 0.5 ,
+        type:'spring',
+        bounce : 0.2
+
+       }}
+       
+       >
          <Leftcolumn>
           <img src={image} alt="" />
          </Leftcolumn>
@@ -92,12 +106,12 @@ const {title,image,description,price} = product
            <p>{description}</p>
            <Button>
             <button onClick={()=>addTocart(product,product.id)}>
-            Add To Cart
+              Add To Cart
             </button>
          </Button>
          </Rightcolumn>
-
        </ProductPageDiv>
+      </AnimatePresence>
     </Container>
     )
 }
