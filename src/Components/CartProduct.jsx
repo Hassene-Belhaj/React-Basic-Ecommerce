@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { BiChevronUp,BiChevronDown} from 'react-icons/bi'
 import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 
 const ProductCart = styled.div`
@@ -11,16 +12,25 @@ height: 200px;
 background:#f3f5f9 ;
 margin: 1rem auto;
 display: flex;
+border: solid 1px rgba(0,0,0,0.1);
 `
 const LeftColumn = styled.div`
 width: 40%;
 height: 100%;
 display: flex;
+overflow: hidden;
+border: solid 1px rgba(0,0,0,0.2);
 img{
-    min-width:100%;
+    max-width:100%;
+    height: 100%;
     object-fit: cover;
 }
 `
+
+
+
+
+
 const RightColumn = styled.div`
 width: 60%;
 height: 100%;
@@ -50,7 +60,6 @@ button{
     border-radius:1px ;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-
 }
 button:hover{
     background: #000;
@@ -83,7 +92,11 @@ const CartProduct = ({product}) => {
 
   return (
     <ProductCart>
-    <LeftColumn> <img src={image} alt="" /></LeftColumn>
+    <LeftColumn>
+        <Link style={{textTransform:'none'}} to={`/product/${id}`}>
+            <img src={image} alt="" />
+        </Link>
+    </LeftColumn>
     <RightColumn>
         <Top>
             <h4>{title}</h4>
