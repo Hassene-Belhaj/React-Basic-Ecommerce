@@ -6,6 +6,7 @@ import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
 import { BsDisplay } from 'react-icons/bs'
+import ProductPageCarousel from '../ProductPageCarousel'
 
 const Container = styled.div`
 padding-top: 60px;
@@ -21,17 +22,17 @@ display: flex;
 background: #fff;
 margin: auto;
 `
-const Leftcolumn = styled.div`
-width: 40%;
-height: 100%;
-display: flex;
-justify-content: center;
-img{
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-}
-`
+// const Leftcolumn = styled.div`
+// width: 40%;
+// height: 100%;
+// display: flex;
+// justify-content: center;
+// img{
+//   min-width: 100%;
+//   min-height: 100%;
+//   object-fit: cover;
+// }
+// `
 const Rightcolumn = styled.div`
 width: 40%;
 height: 100%;
@@ -97,9 +98,14 @@ const {title,image,description,price} = product
        }}
        
        >
-         <Leftcolumn>
-          <img src={image} alt="" />
-         </Leftcolumn>
+         {/* <Leftcolumn>
+         </Leftcolumn> */}
+
+
+
+           <ProductPageCarousel product={product} id={id} />
+
+
 
          <Rightcolumn>
            <h2>{title}</h2>
