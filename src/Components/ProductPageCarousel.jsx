@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 
 
@@ -9,6 +10,7 @@ width: 40%;
 height: 100%;
 display: flex;
 justify-content: center;
+overflow: hidden;
 img{
   min-width: 100%;
   min-height: 100%;
@@ -23,6 +25,7 @@ top: 50%;
 left: 0;
 transform: translateY(-50%);
 cursor:pointer;
+z-index: 50;
 `
 const RightChevron = styled(BiChevronRight)`
 fill: #94a3b8;
@@ -31,6 +34,7 @@ top: 50%;
 right: 0;
 transform: translateY(-50%);
 cursor: pointer;
+z-index: 50;
 `
 
 const AsideCarouselCol = styled.div`
@@ -89,11 +93,27 @@ const ProductPageCarousel = ({product,id}) => {
     <Leftcolumn>
         <RightChevron onClick={Next} size={50} />
         <LeftChevron onClick={Prev} size={50} />
-     <img src={Images[index].img} alt={title} />
+     <motion.img  
+         variants={{
+            initial : { x:-500 , opacity  : 0.5 },  
+            }}
+            animate={{ x: 0 , opacity : 1  }}
+            transition={{
+                duration : 0.5 ,
+                type : "spring" ,
+                bounce : 0.3 
+            }}
+            initial='initial'
+    
+            src={Images[index].img} 
+            key={Images[index].img}
+            />
+          
+     
+
     </Leftcolumn>
 
     <AsideCarouselCol>
-
       {Images.map((item,index)=>{
           return  (
               <CarouselCol key={index}>

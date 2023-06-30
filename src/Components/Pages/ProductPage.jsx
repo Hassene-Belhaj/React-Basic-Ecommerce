@@ -9,15 +9,17 @@ import { BsDisplay } from 'react-icons/bs'
 import ProductPageCarousel from '../ProductPageCarousel'
 
 const Container = styled.div`
-padding-top: 60px;
+padding-top: 5rem;
+padding-bottom: 5rem;
 width: 100%;
-height: 100vh;
+height: 100%;
 background :#f3f5f9 ;
 color: #000;
+margin: auto;
 `
 const ProductPageDiv = styled(motion.div)`
 width: 90%;
-height: 90%;
+height: 100vh;
 display: flex;
 background: #fff;
 margin: auto;
@@ -33,6 +35,8 @@ margin: auto;
 //   object-fit: cover;
 // }
 // `
+
+
 const Rightcolumn = styled.div`
 width: 40%;
 height: 100%;
