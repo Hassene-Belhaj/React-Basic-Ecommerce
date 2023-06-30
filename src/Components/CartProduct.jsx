@@ -15,20 +15,15 @@ display: flex;
 border: solid 1px rgba(0,0,0,0.1);
 `
 const LeftColumn = styled.div`
-width: 40%;
+width: 35%;
 height: 100%;
-display: flex;
 overflow: hidden;
-border: solid 1px rgba(0,0,0,0.2);
 img{
     max-width:100%;
     height: 100%;
     object-fit: cover;
 }
 `
-
-
-
 
 
 const RightColumn = styled.div`

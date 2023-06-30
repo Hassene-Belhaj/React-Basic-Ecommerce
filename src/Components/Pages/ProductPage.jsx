@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { useContextData } from '../../Context/ContextData'
 import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
+import StarsandLikes from '../StarsandLikes'
+import { BsDisplay } from 'react-icons/bs'
 
 const Container = styled.div`
 padding-top: 60px;
@@ -11,22 +13,22 @@ width: 100%;
 height: 100vh;
 background :#f3f5f9 ;
 color: #000;
-margin: auto;
 `
 const ProductPageDiv = styled(motion.div)`
 width: 90%;
-height: 95%;
+height: 90%;
 display: flex;
 background: #fff;
-margin:1rem  auto;
+margin: auto;
 `
 const Leftcolumn = styled.div`
-width: 50%;
+width: 40%;
 height: 100%;
 display: flex;
-background:#000;
+justify-content: center;
 img{
   min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
 }
 `
@@ -48,7 +50,6 @@ p{
 
 `
 const Button = styled.div`
-padding-top: 5rem;
 width: 100%;
 margin: 2rem auto;
 display: flex;
@@ -68,7 +69,6 @@ button{
     }
 }
 `
-
 
 
 const ProductPage = () => {
@@ -103,7 +103,13 @@ const {title,image,description,price} = product
 
          <Rightcolumn>
            <h2>{title}</h2>
+
+             <StarsandLikes product={product} />
+
            <p>{description}</p>
+
+
+
            <Button>
             <button onClick={()=>addTocart(product,product.id)}>
               Add To Cart
