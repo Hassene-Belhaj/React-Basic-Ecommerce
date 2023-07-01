@@ -6,7 +6,6 @@ import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
 import ProductPageCarousel from './ProductPageCarousel'
-import { ShoeSize } from '../Data/Data'
 
 const Container = styled.div`
 padding-top: 80px;
@@ -144,7 +143,7 @@ const {title,image,description,price,size} = product
            <p>{description}</p>
           <label>Select Your Size</label>  
           <select onChange={(e)=>setSelectSize(e.target.value)} value={selectsize} name="" id="">
-          {ShoeSize.map((item,index)=>{
+          {selectsize.map((item,index)=>{
             return <option   key={index}>{item}</option>
           })}
 

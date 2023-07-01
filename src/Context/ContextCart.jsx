@@ -1,4 +1,5 @@
 import React, { Children, createContext, useContext, useEffect, useState } from 'react'
+import { ShoeSize } from '../Components/Data/Data'
 
 
 const useContextCartG = createContext()
@@ -9,7 +10,7 @@ const ContextCart = ({children}) => {
   const [bagQuantity,setbagQuantity] = useState(0)
   const [total,setTotal] = useState()
 
-  const [selectsize,setSelectSize] = useState([])
+  const [selectsize,setSelectSize] = useState(ShoeSize)
 
 
  
