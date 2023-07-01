@@ -19,8 +19,9 @@ width: 100%;
 `
 
 const Stars = styled.div`
-display: inline;
-text-align: center;
+display: flex;
+justify-content: center;
+align-items: baseline;
 width: 50%;
 margin: auto;
 `
@@ -53,7 +54,8 @@ const StarsandLikes = ({product}) => {
            <span style={{color:'orange'}}>
             <AiFillLike/>
            {likes}
-            </span> 
+            </span>
+ 
           </Likes>
 
 

@@ -11,6 +11,7 @@ height: 100%;
 display: flex;
 justify-content: center;
 overflow: hidden;
+background: #f8f8f8;
 img{
   min-width: 100%;
   min-height: 100%;
@@ -19,7 +20,6 @@ img{
 position: relative;
 `
 const LeftChevron = styled(BiChevronLeft)`
-fill: #94a3b8;
 position: absolute;
 top: 50%;
 left: 0;
@@ -28,7 +28,6 @@ cursor:pointer;
 z-index: 50;
 `
 const RightChevron = styled(BiChevronRight)`
-fill: #94a3b8;
 position: absolute;
 top: 50%;
 right: 0;
@@ -94,6 +93,7 @@ const ProductPageCarousel = ({product,id}) => {
         <RightChevron onClick={Next} size={50} />
         <LeftChevron onClick={Prev} size={50} />
      <motion.img  
+
          variants={{
             initial : { x:-500 , opacity  : 0.5 },  
             }}
@@ -107,7 +107,9 @@ const ProductPageCarousel = ({product,id}) => {
     
             src={Images[index].img} 
             key={Images[index].img}
-            />
+
+        
+    />
           
      
 

@@ -15,6 +15,7 @@ background: rgba(0,0,0,0.8);
 display:flex;
 justify-content: center;
 align-items: center;
+z-index: 5000;
 `
 const ModalDiv = styled(motion.div)`
 width: 400px;
@@ -74,6 +75,23 @@ const Modal = () => {
   const {bagQuantity,toggle,handleClick} = useContextCart()
   const [show,setShow] = useState(false)  
  
+
+
+
+
+useEffect(()=>{
+
+const timeout = setTimeout(() => {
+    if(show){
+    setShow(false)
+    }
+  }, 2500);
+  return () =>clearTimeout(timeout)
+
+},[show])
+
+
+
 
   useEffect(()=>{
   if (bagQuantity && !toggle) {

@@ -9,17 +9,17 @@ import { BsDisplay } from 'react-icons/bs'
 import ProductPageCarousel from '../ProductPageCarousel'
 
 const Container = styled.div`
-padding-top: 5rem;
-padding-bottom: 5rem;
+padding-top: 80px;
+padding-bottom: 2rem;
 width: 100%;
-height: 100%;
+height: 100vh;
 background :#f3f5f9 ;
 color: #000;
 margin: auto;
 `
 const ProductPageDiv = styled(motion.div)`
 width: 90%;
-height: 100vh;
+height: 100%;
 display: flex;
 background: #fff;
 margin: auto;
@@ -42,21 +42,29 @@ width: 40%;
 height: 100%;
 display: flex;
 flex-direction: column;
-align-items: center;
-margin: auto;
+margin:1rem  auto;
 h2{
-  padding-top: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
   text-transform: capitalize;
+  text-align: center;
 }
 p{
-  padding-top: 10rem;
-  font-size: 1.2rem;
+  padding-top: 2rem;
+  font-size: 1rem;
 }
 
 `
-const Button = styled.div`
+
+const Review = styled.div`
 width: 100%;
-margin: 2rem auto;
+margin:2rem auto;
+`
+
+
+const ButtonDiv = styled.div`
+width: 100%;
+margin-top: 10rem;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -114,17 +122,22 @@ const {title,image,description,price} = product
          <Rightcolumn>
            <h2>{title}</h2>
 
+           <Review>
+
              <StarsandLikes product={product} />
+
+           </Review>
+
 
            <p>{description}</p>
 
 
 
-           <Button>
+           <ButtonDiv>
             <button onClick={()=>addTocart(product,product.id)}>
               Add To Cart
             </button>
-         </Button>
+         </ButtonDiv>
          </Rightcolumn>
        </ProductPageDiv>
       </AnimatePresence>
