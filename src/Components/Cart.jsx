@@ -75,7 +75,7 @@ height: auto;
 display: flex;
 justify-content: center;
 button{
-    width : 90% ;
+    width : 95% ;
     padding: 1rem;
     border-radius: 10px;
     border: none ;
@@ -85,10 +85,10 @@ button{
     text-transform: capitalize; 
     font-weight: 600;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 &:hover{
     transition: all 0.2s ease-in-out;
-    background: #4ade80;
-    color: #000;
+    background:rgba(0,0,0,0.9);
 }
 
 }
@@ -121,7 +121,7 @@ const Cart = () => {
              </Button>
          </BottomCartFlex>
          <Checkout>
-            <button>Checkout</button>
+            <button>Checkout Order</button>
          </Checkout>
 
          </BottomCart>

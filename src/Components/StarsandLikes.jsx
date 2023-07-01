@@ -4,36 +4,23 @@ import { FaStar } from 'react-icons/fa'
 import { AiFillLike } from 'react-icons/ai'
 
 const Container = styled.div`
-width:80%;
-height: 100%;
-display: flex;
+width:auto;
 height: auto;
-margin-top:3rem;
-margin-left: auto;
-margin-right: auto;
-`
-
-const Avg = styled.div`
-display: inline;
-width: 100%;
-`
-
-const Stars = styled.div`
-display: flex;
-justify-content: center;
-align-items: baseline;
-width: 50%;
-margin: auto;
-`
-
-
-const Likes = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width : 50% ;
-margin: auto;
 `
+
+
+
+const Stars = styled.div`
+display: flex;
+margin: 2rem 0;
+`
+const Reviews = styled.div`
+
+`
+
 
 const StarsandLikes = ({product}) => {
 
@@ -41,22 +28,6 @@ const StarsandLikes = ({product}) => {
   return (
   <Container>
 
-        <Stars>
-          {Array.from({length : avgrating},(_,i)=>{
-            return <span key={i}><FaStar color='orange'/></span>
-          }) }
-          {Array.from({length : 5 - avgrating},(_,i)=>{
-            return <span key={i}><FaStar color='gray'/></span>
-          })}
-          </Stars>
-
-          <Likes>
-           <span style={{color:'orange'}}>
-            <AiFillLike/>
-           {likes}
-            </span>
- 
-          </Likes>
 
 
   </Container>

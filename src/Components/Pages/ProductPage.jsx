@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components'
 import { useContextData } from '../../Context/ContextData'
 import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
-import { BsDisplay } from 'react-icons/bs'
-import ProductPageCarousel from '../ProductPageCarousel'
+import ProductPageCarousel from './ProductPageCarousel'
+import { ShoeSize } from '../Data/Data'
 
 const Container = styled.div`
 padding-top: 80px;
@@ -53,12 +53,19 @@ p{
   padding-top: 2rem;
   font-size: 1rem;
 }
-
+label{
+  margin: 1rem 0;
+  font-weight: 600;
+}
+select{
+outline : none ;
+}
 `
 
 const Review = styled.div`
-width: 100%;
-margin:2rem auto;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 
@@ -86,14 +93,19 @@ button{
 
 const ProductPage = () => {
 
- const [data] =  useContextData()
- const {id} = useParams()
- const {addTocart}=useContextCart()
+  // size state---------------------------------
+
+  const [data] =  useContextData()
+  const {id} = useParams()
+  const {addTocart,selectsize,setSelectSize}=useContextCart()
+  
+  console.log(selectsize);
+
+
 
 const product = data.find((item)=>item.id === parseInt(id))
 
-const {title,image,description,price} = product
-
+const {title,image,description,price,size} = product
 
   return (
     <Container>
@@ -103,11 +115,11 @@ const {title,image,description,price} = product
        animate={{opacity : 1 , x :0}}
        exit={{opacity : 0}}
        transition={{
-        duration : 0.5 ,
-        type:'spring',
-        bounce : 0.2
-
-       }}
+         duration : 0.5 ,
+         type:'spring',
+         bounce : 0.2
+         
+        }}
        
        >
          {/* <Leftcolumn>
@@ -124,23 +136,32 @@ const {title,image,description,price} = product
 
            <Review>
 
-             <StarsandLikes product={product} />
+           <StarsandLikes product={product} />
 
            </Review>
 
 
            <p>{description}</p>
+          <label>Select Your Size</label>  
+          <select onChange={(e)=>setSelectSize(e.target.value)} value={selectsize} name="" id="">
+          {ShoeSize.map((item,index)=>{
+            return <option   key={index}>{item}</option>
+          })}
 
-
+          </select>
+           
 
            <ButtonDiv>
-            <button onClick={()=>addTocart(product,product.id)}>
+            {/* <button onClick={()=>addTocart(product,product.id)}> */}
+            <button onClick={()=>addTocart(product)}>
               Add To Cart
             </button>
          </ButtonDiv>
          </Rightcolumn>
        </ProductPageDiv>
       </AnimatePresence>
+      
+
     </Container>
     )
 }

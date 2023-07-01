@@ -8,6 +8,10 @@ const ContextCart = ({children}) => {
   const [toggle,setToggle]=useState(false)
   const [bagQuantity,setbagQuantity] = useState(0)
   const [total,setTotal] = useState()
+
+  const [selectsize,setSelectSize] = useState([])
+
+
  
   const handleClick = () => setToggle(!toggle)
 
@@ -33,35 +37,40 @@ setTotal(sum.toFixed(2))
 
 
 const addTocart = (product,id) => {
-const addinitialQuantity = {...product , quantity : 1}
-const productInCart = cart.find((item)=>item.id === id)
+
+  if (selectsize !== 0) {
+
+  const addinitialQuantity = {...product , quantity : 1}
+  const productInCart = cart.find((item)=>item.id === id)
   if (productInCart) {
     const newCart = cart.map((item)=>{
-        if (item.id === id) {
-            return {...item , quantity : item.quantity + 1}
-        } else {
-            return item
-        }
+      if (item.id === id) {
+        return {...item , quantity : item.quantity + 1}
+      } else {
+        return item
+      }
     })
     setCart(newCart)
+    setSelectSize(0)
   } else {
     setCart([...cart,addinitialQuantity])
   }
 }
+}
 
 const deleteProduct = (id) => {
-const product = cart.filter((item)=>item.id !== id)
-setCart(product)
+  const product = cart.filter((item)=>item.id !== id)
+  setCart(product)
 }
 
 const decreaseQuantity = (id) => {
-const productInCart = cart.find((item)=> item.id === id) 
-if (productInCart) {
+  const productInCart = cart.find((item)=> item.id === id) 
+  if (productInCart) {
     const newCart = cart.map((item)=>{
-        if(item.id === id ) {
-            return {...item , quantity : item.quantity - 1}
-        } else {
-            return item
+      if(item.id === id ) {
+        return {...item , quantity : item.quantity - 1}
+      } else {
+        return item
         }
     })
     setCart(newCart)
@@ -82,7 +91,7 @@ setCart([])
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total}}>
+  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,selectsize,setSelectSize}}>
     {children}
   </useContextCartG.Provider>
     )

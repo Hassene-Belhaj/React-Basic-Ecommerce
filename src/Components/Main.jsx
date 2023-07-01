@@ -98,8 +98,6 @@ const Main = () => {
 
       </Container>
 
- {/* modal ---------------------      */}
-
 
     </MainDiv>
   )

@@ -92,7 +92,7 @@ const ProductPageCarousel = ({product,id}) => {
     <Leftcolumn>
         <RightChevron onClick={Next} size={50} />
         <LeftChevron onClick={Prev} size={50} />
-     <motion.img  
+     <motion.img
 
          variants={{
             initial : { x:-500 , opacity  : 0.5 },  
