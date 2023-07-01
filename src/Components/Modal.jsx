@@ -86,7 +86,7 @@ const timeout = setTimeout(() => {
     setShow(false)
     }
   }, 2500);
-  return () =>clearTimeout(timeout)
+  return () => clearTimeout(timeout)
 
 },[show])
 
