@@ -16,6 +16,9 @@ align-items: center;
 const Stars = styled.div`
 display: flex;
 margin: 2rem 0;
+span{
+ font-size: 12px;
+}
 `
 const Reviews = styled.div`
 
@@ -28,6 +31,18 @@ const StarsandLikes = ({product}) => {
   return (
   <Container>
 
+        <Stars>
+          {Array.from({length : avgrating},(_,i)=>{
+            return <span key={i}><FaStar color='orange' size={15}/></span>
+          }) }
+          {Array.from({length : 5 - avgrating},(_,i)=>{
+            return <span key={i}><FaStar color='gray' size={15}/></span>
+          })}
+            <span> ( {likes} Reviews ) </span>
+          </Stars>
+
+          {/* // <Reviews>
+          // </Reviews> */}
 
 
   </Container>
