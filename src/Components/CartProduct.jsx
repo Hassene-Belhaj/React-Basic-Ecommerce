@@ -81,7 +81,7 @@ align-items: center;
 
 const CartProduct = ({product}) => {
      const {id,title,description,image,price,quantity,size} = product
-    const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,total,selectsize} = useContextCart()
+    const {cart,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,total} = useContextCart()
 
      const totalItem = quantity * price
 
@@ -105,11 +105,13 @@ const CartProduct = ({product}) => {
             </Buttons>
 
             <Price>
-               <h5>${price}</h5>
+               <h5>${price.toFixed(2)}</h5>
                <h5>${totalItem.toFixed(2)}</h5>
             </Price>
         </Middle>
-               <h5>size : {selectsize}</h5>
+            <Middle>
+               <span><h5>size : {size}</h5></span>
+            </Middle>
         </RightColumn>
 </ProductCart>
     )

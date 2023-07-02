@@ -16,4 +16,6 @@ export const Products = [
 {id: 14 ,title :'leather shoes' ,description : 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil aut cumque dolor, iusto ratione, dicta commodi fuga nostrum fugiat laborum minima, labore soluta. Obcaecati atque saepe dolores magnam deleniti aspernatur distinctio dolorum minus necessitatibus voluptatem at asperiores' ,image : '/product14/product14 (1).jpg' , price :156 , avgrating : 3 ,category : 'category one',stars :5,likes :2553},
 ]
 
-export const ShoeSize = [39,40,41,42,43,44,45,46]
+
+export  const ShoeSize = [39,40,41,42,43,44,45,46]
+

@@ -9,10 +9,12 @@ const ContextCart = ({children}) => {
   const [toggle,setToggle]=useState(false)
   const [bagQuantity,setbagQuantity] = useState(0)
   const [total,setTotal] = useState()
+  const [msg,setMsg] = useState('')
 
-  const [selectsize,setSelectSize] = useState(ShoeSize)
+  const [size,setSize] = useState(0)
 
 
+console.log(cart);
  
   const handleClick = () => setToggle(!toggle)
 
@@ -38,26 +40,28 @@ setTotal(sum.toFixed(2))
 
 
 const addTocart = (product,id) => {
-
-  if (selectsize !== 0) {
-
-  const addinitialQuantity = {...product , quantity : 1}
+if(size !== 0) {
+  const addinitialQuantity = {...product , quantity : 1 , size : size}
   const productInCart = cart.find((item)=>item.id === id)
   if (productInCart) {
     const newCart = cart.map((item)=>{
       if (item.id === id) {
-        return {...item , quantity : item.quantity + 1}
+        return {...item , quantity : item.quantity + 1 ,size : size}
       } else {
         return item
       }
     })
     setCart(newCart)
-    setSelectSize(0)
   } else {
     setCart([...cart,addinitialQuantity])
   }
+} else {
+  console.log('choose your size');
+  setMsg('choose your size');
 }
+setSize(0)
 }
+
 
 const deleteProduct = (id) => {
   const product = cart.filter((item)=>item.id !== id)
@@ -92,7 +96,7 @@ setCart([])
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,selectsize,setSelectSize}}>
+  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,size,setSize}}>
     {children}
   </useContextCartG.Provider>
     )

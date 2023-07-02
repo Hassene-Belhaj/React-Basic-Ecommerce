@@ -97,8 +97,7 @@ button{
 
 
 const Cart = () => {
-    const {toggle , handleClick}= useContextCart()
-    const {cart,clearCart,total} = useContextCart()
+    const {cart,clearCart,total,toggle , handleClick}= useContextCart()
 
 
   return (

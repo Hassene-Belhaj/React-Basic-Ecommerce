@@ -6,6 +6,7 @@ import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
 import ProductPageCarousel from './ProductPageCarousel'
+import { ShoeSize } from '../Data/Data'
 
 const Container = styled.div`
 padding-top: 80px;
@@ -92,19 +93,18 @@ button{
 
 const ProductPage = () => {
 
-  // size state---------------------------------
+
 
   const [data] =  useContextData()
   const {id} = useParams()
-  const {addTocart,selectsize,setSelectSize}=useContextCart()
+  const {addTocart,size,setSize}=useContextCart()
   
-  console.log(selectsize);
-
+ console.log(size);
 
 
 const product = data.find((item)=>item.id === parseInt(id))
 
-const {title,image,description,price,size} = product
+const {title,image,description,price} = product
 
   return (
     <Container>
@@ -142,10 +142,13 @@ const {title,image,description,price,size} = product
 
            <p>{description}</p>
           <label>Select Your Size</label>  
-          <select onChange={(e)=>setSelectSize(e.target.value)} value={selectsize} name="" id="">
-          {selectsize.map((item,index)=>{
-            return <option   key={index}>{item}</option>
-          })}
+          
+     {/* select size                                  */}
+
+          <select onChange={(e)=>setSize(e.target.value)} value={size} name="" id="">
+              {ShoeSize.map((item,index)=>{
+                return <option key={index}>{item}</option>
+              })} 
 
           </select>
            
