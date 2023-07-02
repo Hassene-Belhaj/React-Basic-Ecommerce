@@ -18,14 +18,15 @@ img{
   min-height: 100%;
   object-fit: cover;
 }
+
 @media screen and (max-width : 768px){
     display: block;
     width: 100%;
-    height: 50%;
+    height: 100%;
     img{
-        max-width: 50%;
-        max-height:50%;
-        object-fit:contain;
+        max-width: 100%;
+        min-height:100%;
+        object-fit:cover;
 
     }
 }
@@ -51,18 +52,38 @@ const AsideCarouselCol = styled.div`
 width: auto;
 height: auto;
 display: flex;
+justify-content: start;
+align-items: center;
 flex-direction: column;
-overflow: hidden;
+gap: 4px;
+@media screen and (max-width : 768px){
+  flex-direction  : row;
+  justify-content: center;
+  padding-top: 2rem;
+}
 `
 
 const CarouselCol = styled.span`
-width: 5rem;
-height: 5rem;
+width: 8rem;
+height: 8rem;
 cursor: pointer;
+transition: all 0.3s ease-in-out;
+&:hover{
+transform : scale(1.05);
+transition: all 0.3s ease-in-out;
+}
 img{
     min-width: 100%;
     max-height: 100%;
     object-fit: cover;
+}
+@media screen and (max-width : 768px){
+    width:4rem;
+    img{
+    max-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
 }
 `
 

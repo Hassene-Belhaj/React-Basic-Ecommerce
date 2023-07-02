@@ -15,11 +15,6 @@ height: 100vh;
 background :#f3f5f9 ;
 color: #000;
 margin: auto;
-@media screen and (width : 768px) {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 `
 const ProductPageDiv = styled(motion.div)`
 width: 90%;
@@ -27,9 +22,9 @@ height: 100%;
 display: flex;
 background: #fff;
 margin: auto;
-@media screen and (max-width:768) {
+@media screen and (max-width:768px) {
   display: block;
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 `
@@ -52,7 +47,9 @@ p{
 }
 @media screen and (max-width : 768px){
 display  :block ;
-width  :100% ;
+width  :90% ;
+height: 100%;
+padding-top: 4rem;
 }
 `
 
@@ -81,15 +78,12 @@ button{
     border: none;
     color: #fff;
     &:hover{
+      opacity : 0.9;
+      transition: all 0.2s ease-in-out;
     }
 }
 `
-const QuantityDiv = styled.div`
-button{
-  padding: 1rem 2rem;
-  background: #f1f1f1;
-}
-`
+
 
 const ProductPage = () => {
 
@@ -110,7 +104,7 @@ const {title,image,description,price,quantity} = product
   return (
     <Container>
       <AnimatePresence>
-       {/* <ProductPageDiv
+       <ProductPageDiv
        initial={{opacity : 0 , x : -100}}
        animate={{opacity : 1 , x :0}}
        exit={{opacity : 0}}
@@ -120,7 +114,7 @@ const {title,image,description,price,quantity} = product
          bounce : 0.2
          
         }}
-       > */}
+       >
 
            <ProductPageCarousel product={product} id={id} />
 
@@ -144,7 +138,7 @@ const {title,image,description,price,quantity} = product
             </button>
          </ButtonDiv>
       </Rightcolumn>
-       {/* </ProductPageDiv> */}
+       </ProductPageDiv>
       </AnimatePresence>
       
 
