@@ -15,6 +15,11 @@ height: 100vh;
 background :#f3f5f9 ;
 color: #000;
 margin: auto;
+@media screen and (width : 768px) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 `
 const ProductPageDiv = styled(motion.div)`
 width: 90%;
@@ -22,19 +27,12 @@ height: 100%;
 display: flex;
 background: #fff;
 margin: auto;
+@media screen and (max-width:768) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 `
-// const Leftcolumn = styled.div`
-// width: 40%;
-// height: 100%;
-// display: flex;
-// justify-content: center;
-// img{
-//   min-width: 100%;
-//   min-height: 100%;
-//   object-fit: cover;
-// }
-// `
-
 
 const Rightcolumn = styled.div`
 width: 40%;
@@ -52,14 +50,12 @@ p{
   padding-top: 2rem;
   font-size: 1rem;
 }
-label{
-  margin: 1rem 0;
-  font-weight: 600;
-}
-select{
-outline : none ;
+@media screen and (max-width : 768px){
+display  :block ;
+width  :100% ;
 }
 `
+
 
 const Review = styled.div`
 display: flex;
@@ -114,7 +110,7 @@ const {title,image,description,price,quantity} = product
   return (
     <Container>
       <AnimatePresence>
-       <ProductPageDiv
+       {/* <ProductPageDiv
        initial={{opacity : 0 , x : -100}}
        animate={{opacity : 1 , x :0}}
        exit={{opacity : 0}}
@@ -124,18 +120,13 @@ const {title,image,description,price,quantity} = product
          bounce : 0.2
          
         }}
-       
-       >
-         {/* <Leftcolumn>
-         </Leftcolumn> */}
-
-
+       > */}
 
            <ProductPageCarousel product={product} id={id} />
 
 
 
-         <Rightcolumn>
+      <Rightcolumn>
            <h2>{title}</h2>
 
            <Review>
@@ -152,8 +143,8 @@ const {title,image,description,price,quantity} = product
               Add To Cart
             </button>
          </ButtonDiv>
-         </Rightcolumn>
-       </ProductPageDiv>
+      </Rightcolumn>
+       {/* </ProductPageDiv> */}
       </AnimatePresence>
       
 

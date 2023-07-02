@@ -12,12 +12,23 @@ display: flex;
 justify-content: center;
 overflow: hidden;
 background: #f8f8f8;
+position: relative;
 img{
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
 }
-position: relative;
+@media screen and (max-width : 768px){
+    display: block;
+    width: 100%;
+    height: 50%;
+    img{
+        max-width: 50%;
+        max-height:50%;
+        object-fit:contain;
+
+    }
+}
 `
 const LeftChevron = styled(BiChevronLeft)`
 position: absolute;
@@ -41,10 +52,11 @@ width: auto;
 height: auto;
 display: flex;
 flex-direction: column;
+overflow: hidden;
 `
 
 const CarouselCol = styled.span`
-width: 4rem;
+width: 5rem;
 height: 5rem;
 cursor: pointer;
 img{
