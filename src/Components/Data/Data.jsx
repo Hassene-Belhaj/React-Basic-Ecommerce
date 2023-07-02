@@ -17,5 +17,5 @@ export const Products = [
 ]
 
 
-export  const ShoeSize = [39,40,41,42,43,44,45,46]
+export  const ShoeSize = ['Select Your Size',39,40,41,42,43,44,45,46]
 

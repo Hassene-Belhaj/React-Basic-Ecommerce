@@ -141,13 +141,13 @@ const {title,image,description,price} = product
 
 
            <p>{description}</p>
-          <label>Select Your Size</label>  
           
      {/* select size                                  */}
 
+          <label>Select Your Size</label>  
           <select onChange={(e)=>setSize(e.target.value)} value={size} name="" id="">
               {ShoeSize.map((item,index)=>{
-                return <option key={index}>{item}</option>
+                return <option style={{fontWeight:'600'}} key={index}>{item}</option>
               })} 
 
           </select>

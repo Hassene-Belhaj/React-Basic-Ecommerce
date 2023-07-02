@@ -9,9 +9,9 @@ const ContextCart = ({children}) => {
   const [toggle,setToggle]=useState(false)
   const [bagQuantity,setbagQuantity] = useState(0)
   const [total,setTotal] = useState()
-  const [msg,setMsg] = useState('')
-
+  
   const [size,setSize] = useState(0)
+  const [msg,setMsg] = useState('')
 
 
 console.log(cart);
@@ -96,7 +96,7 @@ setCart([])
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,size,setSize}}>
+  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,size,setSize,msg}}>
     {children}
   </useContextCartG.Provider>
     )

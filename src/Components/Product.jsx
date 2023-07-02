@@ -36,6 +36,9 @@ background: rgba(0,0,0,0.9);
 border-radius: 12px;
 z-index: 0;
 color: #fff;
+h3{
+    font-size:14px ;
+}
 `
 
 const ButtonDiv = styled.div`
