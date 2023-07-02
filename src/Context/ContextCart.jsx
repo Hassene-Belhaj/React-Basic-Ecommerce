@@ -40,7 +40,6 @@ setTotal(sum.toFixed(2))
 
 
 const addTocart = (product,id) => {
-
   const addinitialQuantity = {...product , quantity : 1 }
   const productInCart = cart.find((item)=>item.id === id)
   if (productInCart) {
@@ -93,7 +92,7 @@ setCart([])
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total}}>
+  <useContextCartG.Provider value={{cart,setCart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total}}>
     {children}
   </useContextCartG.Provider>
     )

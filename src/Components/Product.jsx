@@ -66,14 +66,13 @@ background: #000;
 color: #fff;
 }
 button:last-child{
-background    :#fff ;
+background:#fff ;
 color: #000;
-font-size: 1rem;
+font-size: 14px;
 font-weight: 500;
 transition: all 0.2s ease-in;
-
 &:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.2s ease-in;
 }
 }
@@ -137,7 +136,16 @@ const Product = ({product}) => {
                     
                     <ProductDetails>
                        <Linkto to={`product/${id}`}>
-                             <h3>View Details</h3>
+                             <motion.h3
+                             initial={{opacity : 0 , x : 300}}
+                             animate={{opacity : 1 , x : 0}}
+                             transition={{
+                                 duration : 0.3 ,
+                             }} 
+                             
+                             
+                             
+                             >View Details</motion.h3>
                        </Linkto>
                        
                    </ProductDetails> 

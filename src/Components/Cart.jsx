@@ -21,6 +21,7 @@ color: #000;
 transition: all 0.5s ease-in-out;
 overflow: scroll;
 h3{
+    font-size :14px ;
     padding: 1rem;
 }
 @media screen and (max-width : 768px){
@@ -97,7 +98,7 @@ button{
 
 
 const Cart = () => {
-    const {cart,clearCart,total,toggle , handleClick}= useContextCart()
+    const {cart,clearCart,total,toggle,handleClick}= useContextCart()
 
 
   return (

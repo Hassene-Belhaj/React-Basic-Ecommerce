@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import styled from 'styled-components'
 import { useContextData } from '../../Context/ContextData'
-import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
 import ProductPageCarousel from './ProductPageCarousel'
+import { useContextCart } from '../../Context/ContextCart'
 
 const Container = styled.div`
 padding-top: 80px;
@@ -72,7 +72,7 @@ const ButtonDiv = styled.div`
 width: 100%;
 margin-top: 10rem;
 display: flex;
-justify-content: end;
+justify-content: center;
 align-items: center;
 button{
     padding: 8px 64px;
@@ -88,21 +88,28 @@ button{
     }
 }
 `
-
+const QuantityDiv = styled.div`
+button{
+  padding: 1rem 2rem;
+  background: #f1f1f1;
+}
+`
 
 const ProductPage = () => {
 
 
 
   const [data] =  useContextData()
+  const {cart,setCart,addTocart,increaseQuantity} = useContextCart()
   const {id} = useParams()
-  const {addTocart}=useContextCart()
   
 
 
 const product = data.find((item)=>item.id === parseInt(id))
 
-const {title,image,description,price} = product
+const {title,image,description,price,quantity} = product
+
+
 
   return (
     <Container>
@@ -139,19 +146,8 @@ const {title,image,description,price} = product
 
 
            <p>{description}</p>
-          
 
-          {/* <label>Select Your Size</label>  
-          <select onChange={(e)=>setSize(e.target.value)} value={size} name="" id="">
-              {ShoeSize.map((item,index)=>{
-                return <option style={{fontWeight:'600'}} key={index}>{item}</option>
-              })} 
-
-          </select> */}
-           
-
-           <ButtonDiv>
-            {/* <button onClick={()=>addTocart(product,product.id)}> */}
+           <ButtonDiv>    
             <button onClick={()=>addTocart(product,product.id)}>
               Add To Cart
             </button>

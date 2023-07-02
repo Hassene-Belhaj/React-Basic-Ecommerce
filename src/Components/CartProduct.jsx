@@ -4,9 +4,10 @@ import { BiChevronUp,BiChevronDown} from 'react-icons/bi'
 import { useContextCart } from '../Context/ContextCart'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 
 
-const ProductCart = styled.div`
+const ProductCart = styled(motion.div)`
 width: 100%;
 height: 200px;
 background:#f3f5f9 ;
@@ -40,6 +41,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 margin: auto;
+h4{
+    font-size: 14px;
+}
 `
 const Middle = styled.div`
 width: 90%;
@@ -86,7 +90,11 @@ const CartProduct = ({product}) => {
      const totalItem = quantity * price
 
   return (
-    <ProductCart>
+
+    <ProductCart 
+    initial={{opacity : 0 , x : 200}}
+    animate={{opacity : 1 , x : 0}}
+    >
     <LeftColumn>
         <Link style={{textTransform:'none'}} to={`/product/${id}`}>
             <img src={image} alt="" />
@@ -98,7 +106,7 @@ const CartProduct = ({product}) => {
             <AiOutlineClose  onClick={()=>deleteProduct(id)}/>
         </Top>
         <Middle> 
-                <button style={{background:'#f3f5f9',color:'#000',fontSize:'1rem'}}>{quantity}</button> 
+                <button style={{background:'#f3f5f9',color:'#000',fontSize:'14px'}}>{quantity}</button> 
             <Buttons>
                 <button onClick={()=>increaseQuantity(id)}><BiChevronUp size={15}/></button>
                 <button onClick={()=>decreaseQuantity(id)}><BiChevronDown size={15}/></button>
@@ -109,9 +117,6 @@ const CartProduct = ({product}) => {
                <h5>${totalItem.toFixed(2)}</h5>
             </Price>
         </Middle>
-            {/* <Middle>
-               <span><h5>size : {size}</h5></span>
-            </Middle> */}
         </RightColumn>
 </ProductCart>
     )
