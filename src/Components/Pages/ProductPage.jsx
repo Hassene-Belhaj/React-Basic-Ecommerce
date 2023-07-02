@@ -6,7 +6,6 @@ import { useContextCart } from '../../Context/ContextCart'
 import { motion ,AnimatePresence } from 'framer-motion'
 import StarsandLikes from '../StarsandLikes'
 import ProductPageCarousel from './ProductPageCarousel'
-import { ShoeSize } from '../Data/Data'
 
 const Container = styled.div`
 padding-top: 80px;
@@ -73,13 +72,13 @@ const ButtonDiv = styled.div`
 width: 100%;
 margin-top: 10rem;
 display: flex;
-justify-content: center;
+justify-content: end;
 align-items: center;
 button{
-    padding: 1rem 3rem;
+    padding: 8px 64px;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease-in-out;
     background: #000;
@@ -97,9 +96,8 @@ const ProductPage = () => {
 
   const [data] =  useContextData()
   const {id} = useParams()
-  const {addTocart,size,setSize}=useContextCart()
+  const {addTocart}=useContextCart()
   
- console.log(size);
 
 
 const product = data.find((item)=>item.id === parseInt(id))
@@ -142,20 +140,19 @@ const {title,image,description,price} = product
 
            <p>{description}</p>
           
-     {/* select size                                  */}
 
-          <label>Select Your Size</label>  
+          {/* <label>Select Your Size</label>  
           <select onChange={(e)=>setSize(e.target.value)} value={size} name="" id="">
               {ShoeSize.map((item,index)=>{
                 return <option style={{fontWeight:'600'}} key={index}>{item}</option>
               })} 
 
-          </select>
+          </select> */}
            
 
            <ButtonDiv>
             {/* <button onClick={()=>addTocart(product,product.id)}> */}
-            <button onClick={()=>addTocart(product)}>
+            <button onClick={()=>addTocart(product,product.id)}>
               Add To Cart
             </button>
          </ButtonDiv>

@@ -76,12 +76,12 @@ display: flex;
 justify-content: center;
 button{
     width : 95% ;
-    padding: 1rem;
+    padding: 8px;
     border-radius: 10px;
     border: none ;
     background: #000;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: capitalize; 
     font-weight: 600;
     transition: all 0.2s ease-in-out;

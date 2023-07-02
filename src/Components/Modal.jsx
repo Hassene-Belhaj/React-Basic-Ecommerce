@@ -64,8 +64,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 button{
-  width:80%;
-  height: 3rem;
+  padding: 8px 32px;
   margin-top: 1rem;
   border-radius: 10px;
   border: none;

@@ -14,6 +14,7 @@ color: #000;
 padding-top: 60px;
 overflow: hidden;
 h3{
+  font-size:1rem ;
   padding-top: 2rem;
 }
 button{

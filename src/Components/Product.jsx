@@ -37,7 +37,7 @@ border-radius: 12px;
 z-index: 0;
 color: #fff;
 h3{
-    font-size:14px ;
+    font-size:1rem ;
 }
 `
 
@@ -48,7 +48,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 button{
-    padding: 0.5rem 1rem;
+    padding: 6px 1rem;
     margin-left: 1rem;
     border-radius: 5px;
     border: none;
@@ -62,9 +62,11 @@ button{
 button:first-child{
 font-size    :1rem ;
 font-weight: 700;
+background: #000;
+color: #fff;
 }
 button:last-child{
-background    :#4ade80 ;
+background    :#fff ;
 color: #000;
 font-size: 1rem;
 font-weight: 500;
@@ -83,9 +85,7 @@ height: auto;
 text-align: center;
 h3{ 
     display: inline-block;
-    color: #4ade80;
-    border-bottom: solid 1px #4ade80;
-    /* padding: 12px; */
+    border-bottom: solid 1px #fff;
     transition: all 0.2s ease-in-out;
 }
 `
@@ -94,12 +94,6 @@ h3{
 const Linkto = styled(Link)`
 text-transform: none;
 color: #fff;
-transition: all 0.2s ease-in-out;
-&:hover{
-    color: #4ade80;
-    transition: all 0.2s ease-in-out;   
-  
-}
 `
 
 const Product = ({product}) => {

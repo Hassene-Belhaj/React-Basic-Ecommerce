@@ -40,13 +40,13 @@ setTotal(sum.toFixed(2))
 
 
 const addTocart = (product,id) => {
-if(size !== 0) {
-  const addinitialQuantity = {...product , quantity : 1 , size : size}
+
+  const addinitialQuantity = {...product , quantity : 1 }
   const productInCart = cart.find((item)=>item.id === id)
   if (productInCart) {
     const newCart = cart.map((item)=>{
       if (item.id === id) {
-        return {...item , quantity : item.quantity + 1 ,size : size}
+        return {...item , quantity : item.quantity + 1}
       } else {
         return item
       }
@@ -55,17 +55,14 @@ if(size !== 0) {
   } else {
     setCart([...cart,addinitialQuantity])
   }
-} else {
-  console.log('choose your size');
-  setMsg('choose your size');
-}
-setSize(0)
-}
+} 
+
 
 
 const deleteProduct = (id) => {
   const product = cart.filter((item)=>item.id !== id)
-  setCart(product)
+    setCart(product)  
+  
 }
 
 const decreaseQuantity = (id) => {
@@ -96,7 +93,7 @@ setCart([])
 
 
   return (
-  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total,size,setSize,msg}}>
+  <useContextCartG.Provider value={{cart,toggle,setToggle,handleClick,addTocart,deleteProduct,decreaseQuantity,increaseQuantity,clearCart,bagQuantity,total}}>
     {children}
   </useContextCartG.Provider>
     )
