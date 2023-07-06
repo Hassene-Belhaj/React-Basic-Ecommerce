@@ -63,14 +63,14 @@ gap: 4px;
 }
 `
 
-const CarouselCol = styled.span`
+const CarouselCol = styled.div`
 width: 8rem;
 height: 8rem;
 cursor: pointer;
 transition: all 0.3s ease-in-out;
 &:hover{
-transform : scale(1.05);
-transition: all 0.3s ease-in-out;
+    transform: scale(1.08);
+    transition: all 0.3s ease-in-out;
 }
 img{
     min-width: 100%;

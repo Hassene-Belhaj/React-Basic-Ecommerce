@@ -11,5 +11,9 @@ export const Global = createGlobalStyle`
 }
 body{
     scroll-behavior: smooth;
+
 }
 `
+
+
+
