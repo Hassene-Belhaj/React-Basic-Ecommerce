@@ -116,7 +116,7 @@ const Product = ({product}) => {
             <ProductDiv onMouseEnter={mouseEnter} onMouseLeave={mouseLeaving}>
                 <img src={image} alt="" />
 
-                <ProductsItems style={{width: hovering ? "100%" : 0 }} >
+                <ProductsItems style={{width: hovering ? 0 : '-100%'}} >
                     {hovering ?   
                     <>
                     <motion.h3 style={{textTransform:'capitalize'}}
