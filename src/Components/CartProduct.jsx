@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const ProductCart = styled(motion.div)`
 width: 100%;
-height: 200px;
+height: 100%;
 background:#f3f5f9 ;
 margin: 1rem auto;
 display: flex;

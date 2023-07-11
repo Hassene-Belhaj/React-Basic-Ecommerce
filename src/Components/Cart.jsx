@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose} from 'react-icons/ai'
 import { BsTrash3 } from 'react-icons/bs'
@@ -59,7 +59,14 @@ display: flex;
 justify-content: space-between;
 align-items: baseline;
 `
-
+const CartDivFlex = styled.div`
+width: 100%;
+height: 200px;
+background:#f3f5f9 ;
+margin: 1rem auto;
+display: flex;
+border: solid 1px rgba(0,0,0,0.1);
+`
 
 const TrashIcon = styled(BsTrash3)`
 fill:red;
@@ -100,6 +107,16 @@ button{
 const Cart = () => {
     const {cart,clearCart,total,toggle,handleClick}= useContextCart()
 
+    const bottomdiv = useRef(null)
+
+    const scrollToBottom = () => {
+        bottomdiv.current?.scrollIntoView({behavior: "smooth", block: "start", inline: "end"});
+      }
+    
+      useEffect(() => {
+      scrollToBottom()
+      }, [cart]);
+
 
   return (
     <Container toggle={toggle} >
@@ -107,8 +124,10 @@ const Cart = () => {
         <h3>Cart</h3>
         <CloseIcon size={25} onClick={handleClick} />
         {cart.map((product,index)=>{
-            return (       
-                <CartProduct key={index}  product={product}/>
+            return (   
+                <CartDivFlex key={index} ref={bottomdiv}>
+                      <CartProduct   product={product}/>
+                </CartDivFlex>    
         )
         })}
         </CartDiv>
